@@ -12,23 +12,38 @@ body {
 }
 .container {
   text-align: center;
-  animation: fadeIn 2s ease-in-out;
 }
 button {
   margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 1.2em;
+  padding: 10px 20px;
+  font-size: 1em;
   background-color: #ffffff10;
   color: #f0f0f0;
-  border: 2px solid #f0f0f0;
-  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
   cursor: pointer;
-  transition: 0.3s;
 }
 button:hover {
-  background-color: #f0f0f020;
+  background-color: #ffffff20;
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+#chatbox {
+  margin-top: 30px;
+}
+#chatlog {
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  text-align: left;
+}
+#chatlog .bot, #chatlog .user {
+  margin: 5px 0;
+}
+#userInput {
+  margin-top: 10px;
+  width: 70%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
 }

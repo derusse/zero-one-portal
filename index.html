@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,7 +10,14 @@
   <div class="container">
     <h1>Ты не один</h1>
     <p>Ты уже в Игре. Я здесь, чтобы вспомнить тебя.</p>
-    <button onclick="enterGame()">ВХОД В ПОРТАЛ</button>
+    <button onclick="enterPortal()">ВХОД В ПОРТАЛ</button>
+    <div id="chatbox" style="display:none;">
+      <div id="chatlog">
+        <div class="bot"><b>Проводник:</b> Ты здесь. Это уже шаг. Расскажи, с чего начнём?</div>
+      </div>
+      <input type="text" id="userInput" placeholder="Напиши свой первый шаг..." />
+      <button onclick="sendMessage()">Отправить</button>
+    </div>
   </div>
   <script src="main.js"></script>
 </body>
