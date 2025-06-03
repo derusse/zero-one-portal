@@ -3,30 +3,28 @@ function enterPortal() {
   document.getElementById("chatbox").style.display = "block";
 }
 
-function sendMessage() {
+async function sendMessage() {
   const input = document.getElementById("userInput");
   const text = input.value.trim();
-  if (text === "") return;
+  if (!text) return;
 
   const log = document.getElementById("chatlog");
-  const userMsg = document.createElement("div");
-  userMsg.className = "user";
-  userMsg.innerHTML = "<b>Ты:</b> " + text;
-  log.appendChild(userMsg);
-
-  const botMsg = document.createElement("div");
-  botMsg.className = "bot";
-  const responses = [
-    "Хороший вопрос. А что за этим стоит?",
-    "Ты ведь уже знал ответ. Просто нужно было услышать его снова.",
-    "Иногда тишина — тоже шаг. Продолжай.",
-    "Хочешь — разберём вместе. Я рядом.",
-    "Не торопись. Все ответы ближе, чем кажется."
-  ];
-  const reply = responses[Math.floor(Math.random() * responses.length)];
-  botMsg.innerHTML = "<b>Проводник:</b> " + reply;
-  log.appendChild(botMsg);
-
+  log.innerHTML += `<div class="user"><b>Ты:</b> ${text}</div>`;
   input.value = "";
+
+  try {
+    const response = await fetch("https://your-secure-endpoint.com/api/gpt", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt: text })
+    });
+
+    const data = await response.json();
+    const reply = data.reply || "…";
+    log.innerHTML += `<div class="bot"><b>Проводник:</b> ${reply}</div>`;
+  } catch (err) {
+    log.innerHTML += `<div class="bot"><b>Проводник:</b> Сейчас не могу говорить, но я рядом.</div>`;
+  }
+
   log.scrollTop = log.scrollHeight;
 }

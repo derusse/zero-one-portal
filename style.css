@@ -33,15 +33,15 @@ button:hover {
   background: #111;
   padding: 10px;
   border-radius: 8px;
-  max-height: 200px;
+  max-height: 250px;
   overflow-y: auto;
   text-align: left;
+  margin-bottom: 10px;
 }
 #chatlog .bot, #chatlog .user {
   margin: 5px 0;
 }
 #userInput {
-  margin-top: 10px;
   width: 70%;
   padding: 8px;
   border-radius: 5px;
