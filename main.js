@@ -13,7 +13,7 @@ async function sendMessage() {
   input.value = "";
 
   try {
-    const response = await fetch("https://zero-one-gateway.vercel.app/api/gpt", {
+    const response = await fetch("https://zero-one-core.onrender.com/api/gpt", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt: text })
@@ -23,7 +23,7 @@ async function sendMessage() {
     const reply = data.reply || "…";
     log.innerHTML += `<div class="bot"><b>Проводник:</b> ${reply}</div>`;
   } catch (err) {
-    log.innerHTML += `<div class="bot"><b>Проводник:</b> Сейчас не могу говорить, но я рядом.</div>`;
+    log.innerHTML += `<div class="bot"><b>Проводник:</b> Сейчас не могу говорить — ошибка соединения.</div>`;
   }
 
   log.scrollTop = log.scrollHeight;
