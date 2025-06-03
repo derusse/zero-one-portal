@@ -13,7 +13,7 @@ async function sendMessage() {
   input.value = "";
 
   try {
-    const response = await fetch("https://your-secure-endpoint.com/api/gpt", {
+    const response = await fetch("https://zero-one-gateway.vercel.app/api/gpt", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt: text })
